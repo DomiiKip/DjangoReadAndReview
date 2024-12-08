@@ -1,0 +1,80 @@
+<!-- templates/reviews/book_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    {% load static %}  <!-- Load the static template tag library -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Book List</h1>
+
+    <h2>Fiction Books</h2>
+    <ul>
+        {% for book in books %}
+            {% if book.genre == 'Fiction' %}
+                <li>
+                    <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }}
+                </li>
+            {% endif %}
+        {% empty %}
+            <li>No Fiction books available.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Non-Fiction Books</h2>
+    <ul>
+        {% for book in books %}
+            {% if book.genre == 'Non-Fiction' %}
+                <li>
+                    <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }}
+                </li>
+            {% endif %}
+        {% empty %}
+            <li>No Non-Fiction books available.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Young Adult Books</h2>
+    <ul>
+        {% for book in books %}
+            {% if book.genre == 'Young Adult' %}
+                <li>
+                    <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }}
+                </li>
+            {% endif %}
+        {% empty %}
+            <li>No Young Adult books available.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Mystery and Thriller Books</h2>
+    <ul>
+        {% for book in books %}
+            {% if book.genre == 'Mystery and Thriller' %}
+                <li>
+                    <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }}
+                </li>
+            {% endif %}
+        {% empty %}
+            <li>No Mystery and Thriller books available.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Self-Help and Personal Development Books</h2>
+    <ul>
+        {% for book in books %}
+            {% if book.genre == 'Self-Help and Personal Development' %}
+                <li>
+                    <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> - {{ book.author }}
+                </li>
+            {% endif %}
+        {% empty %}
+            <li>No Self-Help and Personal Development books available.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
